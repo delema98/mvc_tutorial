@@ -7,7 +7,9 @@
 - MVC pattern
 - sql database
 - razor webpages
-- bootstrap
+- bootstrap 5.1
+- bootswatch theme
+- 
 
 - OS: ubuntu 20.04 and therefore:
   - instead of VS -> VS Code + C# Extension + dotnet cli
