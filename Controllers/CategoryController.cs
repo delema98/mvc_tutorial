@@ -15,8 +15,7 @@ namespace mvc_tutorial.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable <Category> objCategoryList = _db.Categories;
-            
+            IEnumerable<Category> objCategoryList = _db.Categories;
             return View(objCategoryList);
         }
         //GET
@@ -30,9 +29,13 @@ namespace mvc_tutorial.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category obj)
         {
-            _db.Categories.Add(obj);
-            _db.SaveChanges();    
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _db.Categories.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
         }
     }
 }
